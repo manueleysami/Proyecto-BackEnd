@@ -1,0 +1,62 @@
+<%- include("../partials/header"); %>
+    <div class="container ">
+        <div class="row d-flex justify-content-center">
+                <%- include("../partials/error"); %>
+                <%- include("../partials/exito"); %>
+                <div class="mt-5 col-md-6">
+                        <% if(fabricantes.length <= 0) {%>
+                            <p class="text-capitalize text-center">no hay Fabricantes Disponibles en UVM CAR</p>
+                        <a href="/fabricantes/agregar" class="btn btn-primary btn-block mt-3 text-capitalize">Agrega nuevos fabricantes <i class="fa fa-building"></i></a>
+                            <%}else{%>
+                        <h1 class="text-capitalize text-center">Fabricantes Disponibles</h1>
+                        <span class="input-group-addon">Buscar: &nbsp;</span>
+                        <input id="filtrar" type="text" class="form-control" placeholder="Ingresa el Nombre o Teléfono del Fabricante...">
+                        <a href="/fabricantes/agregar" class="btn btn-primary btn-block mt-3 text-capitalize">Agrega nuevos fabricantes <i class="fa fa-building"></i></a>
+                </div>
+            <%}%>
+        </div>
+    </div>
+    <div class="container my-5">
+            <div class="row">
+                <div class="col-md-12 mx-auto mt-4">
+                    <table class="table ">
+                        <thead class="thead-dark">
+                        <tr>
+                            <% if(fabricantes.length <= 0) {%>
+                                <tr class="d-flex justify-content-center">
+                                    <p class="text-center text-capitalize">No hay fabricantes registrados en la concesionaria para listar</p> 
+                                </tr>
+                            <%}else{%>
+                            <th scope="col" >Rif</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Contacto</th>
+                            <th scope="col">Acciones</th>
+                            <%}%>
+                        </tr>
+                        </thead>
+                        <tbody id="buscar">
+                            <% fabricantes.forEach(fabricante =>{ %>
+                            <tr >
+                                <th scope="row">J-<%= fabricante.rif %></th>
+                                <td><%= fabricante.nombre %></td>
+                                <td><%= fabricante.telefono %></td>
+                                <td><%= fabricante.direccion %></td>
+                                <td><%= fabricante.contacto %></td>
+                                <td> 
+                                    <a href="/fabricantes/editar/<%= fabricante.id %>" class="btn btn-info" >
+                                    <i class="fa fa-pencil-alt"></i>
+                                </a>
+                                    <a href="/fabricantes/eliminar/<%= fabricante.id %>" class="btn btn-danger eliminar-btn" onclick="return confirm(`¿Esta seguro en eliminar el fabricante: <%= fabricante.nombre %>?`)">
+                                    <i class="fa fa-minus-circle"></i>
+                                </a>
+                            </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+<%- include("../partials/footer"); %>

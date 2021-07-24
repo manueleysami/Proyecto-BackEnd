@@ -1,0 +1,39 @@
+<%- include("../partials/header"); %>
+<div class="container contenedor-top mb-5">
+      <h2 class="text-center mb-4 text-capitalize font-weight-light">Actualiza el fabricante: <%= fabricante.nombre %></h2>
+      <div class="row d-flex justify-content-center ">
+          <div class="col-md-10">
+              <form action="/fabricantes/actualizar?_method=PUT" method="post">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="nombre">Nombre:</label>
+                      <input value="<%= fabricante.id %>" name="id" type="hidden">
+                      <input required value="<%= fabricante.nombre %>" name="nombre"  type="text" class="form-control" id="nombre" placeholder="Escribe el nombre del fabricante">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="rif">Rif:</label>
+                      <input required name="rif"  value="<%= fabricante.rif %>" type="number" class="form-control" id="rif" placeholder="Rif del fabricante">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-5">
+                    <label for="direccion">Direccion:</label>
+                    <input  required   value="<%= fabricante.direccion %>"  name="direccion" type="text" class="form-control" id="direccion" placeholder="Dirección del fabricante">
+                      </div>
+                      <div class="form-group col-md-5">
+                    <label for="contacto">Contacto:</label>
+                    <input  required   value="<%= fabricante.contacto %>"  name="contacto" type="text" class="form-control" id="contacto" placeholder="Dirección del fabricante">
+                      </div>
+                    <div class="form-group col-md-2">
+                      <label for="telefono">Teléfono:</label>
+                      <input  required name="telefono"  value="<%= fabricante.telefono %>" type="number" class="form-control" placeholder="Teléfono" id="telefono">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  <button type="submit" class="text-uppercase btn btn-info btn-block">Actualizar fabricante</button>
+                </form>
+          </div>
+      </div>
+  </div>
+
+<%- include("../partials/footer"); %>

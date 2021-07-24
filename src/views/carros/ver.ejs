@@ -1,0 +1,71 @@
+<%- include("../partials/header"); %>
+<div class="container ">
+    <div class="row d-flex justify-content-center">
+        <%- include("../partials/exito") %>
+        <%- include("../partials/error") %>
+        <%if(typeof error !== "undefined") {%>
+            <p class="text-center mt-3 alert alert-danger p-1"><%= error%></p>
+        <%}%>
+        <div class="mt-5 col-md-6">
+            <% if(carros.length <= 0) {%>
+                <p class="text-capitalize text-center">Agrega nuevos carros a la concesionaria <i class="fa fa-cars"></i> </p>
+            <a href="/carros/agregar" class="btn btn-primary btn-block mt-3 text-capitalize">Agregar nuevos Carros <i class="fa fa-car"></i> </a>
+                
+                <%}else{%>
+            <h1 class="text-capitalize text-center">carros disponibles</h1>
+            <span class="input-group-addon">Buscar: &nbsp;</span>
+            <input id="filtrar" type="text" class="form-control" placeholder="Ingresa el Nombre o Marca del carro que deseas buscar...">
+            
+            <a href="/carros/agregar" class="btn btn-primary btn-block mt-3 text-capitalize">Agregar nuevos Carros <i class="fa fa-car"></i> </a>
+        
+        </div>
+        <%}%>
+       
+    </div>
+</div>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-12 mx-auto mt-4">
+            <table class="table ">
+                <thead class="thead-dark">
+                  <tr>
+                    <% if(carros.length <= 0) {%>
+                        <tr class="d-flex justify-content-center">
+                            <p class="text-center text-capitalize">No hay carros en la concesionaria para listar</p> 
+                        </tr>
+                    <%}else{%>
+                    <th scope="col" >Nombre</th>
+                    <th scope="col">Año</th>
+				    <th scope="col">Marca</th>
+				    <th scope="col">Especificaciones</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Acciones</th>
+                    <%}%>
+                  </tr>
+                </thead>
+                <tbody id="buscar">
+                    <% carros.forEach(carro =>{ %>
+                    <tr >
+                        <th scope="row"><%= carro.nombre %></th>
+                        <td><%= carro.año %></td>
+                        <td><%= carro.marca %></td>
+                        <td><%= carro.especificaciones %></td>
+                        <td><%= carro.precio %></td>
+                        <td> 
+                            
+                            <a href="/carros/editar/<%= carro.id %>" class="btn btn-info" >
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a href="/carros/eliminar/<%= carro.id %>" class="btn btn-danger eliminar-btn" onclick="return confirm(`¿Esta seguro en eliminar el carro: <%= carro.nombre %>?`)">
+                            <i class="fa fa-trash"></i>
+                         </a>
+                    </td>
+                      </tr>
+                    <% }) %>
+                 
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<%- include("../partials/footer"); %>

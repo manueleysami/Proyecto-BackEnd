@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+/* Login estilos */
+#login .container #login-fila #login-columna #login-contenedor {
+  margin-top: 63px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9c9c9c;
+  background-color: #eaeaea;
+}
+#login .container #login-fila #login-columna #login-registrar {
+  margin-top: 63px;
+  max-width: 600px;
+  border: 1px solid #9c9c9c;
+  background-color: #eaeaea;
+  height: 421px;
+  margin-bottom: 3em;
+}
+#login
+  .container
+  #login-fila
+  #login-columna
+  #login-contenedor
+  #login-formulario {
+  padding: 20px;
+}
+#login
+  .container
+  #login-fila
+  #login-columna
+  #login-contenedor
+  #login-formulario
+  #registro-link {
+  margin-top: -85px;
+}
+.texto-login {
+  margin-top: 4em !important;
+}
+
+/* Registro estilos */
+#registro .container #registro-fila #registro-columna #registro-contenedor {
+  margin-top: 63px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9c9c9c;
+  background-color: #eaeaea;
+}
+#registro .container #registro-fila #registro-columna #registro-registrar {
+  margin-top: 23px;
+  max-width: 600px;
+  border: 1px solid #9c9c9c;
+  background-color: #eaeaea;
+  height: 430px;
+}
+#registro
+  .container
+  #registro-fila
+  #registro-columna
+  #registro-contenedor
+  #registro-formulario {
+  padding: 20px;
+}
+#registro
+  .container
+  #registro-fila
+  #registro-columna
+  #registro-contenedor
+  #registro-formulario
+  #registro-link {
+  margin-top: -85px;
+}
+.texto-registro {
+  margin-top: 4em !important;
+}
+.texto-titulo-registro {
+  margin-top: 0.5em;
+}

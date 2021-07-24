@@ -1,0 +1,40 @@
+<%- include("../partials/header"); %>
+<div class="container contenedor-top mb-5">
+    <%- include("../partials/error"); %>
+    <h2 class="text-center mb-4 text-capitalize wei">Agrega nuevos fabricantes a la concesionaria</h2>
+    <div class="row d-flex justify-content-center ">
+        <div class="col-md-10">
+            <form action="/fabricantes/insertar" method="post">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="nombre">Nombre:</label>
+                    <input required name="nombre"  type="text" class="form-control" id="nombre" placeholder="Escribe el nombre del Fabricante">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="rif">Rif:</label>
+                    <input required name="rif"   type="number" class="form-control" id="rif" placeholder="Rif del fabricante">
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                  <label for="direccion">Dirección:</label>
+                  <input  required name="direccion" type="text" class="form-control" id="direccion" placeholder="Dirección del fabricante">
+                    </div>
+                    <div class="form-group col-md-4">
+                  <label for="contacto">Contácto:</label>
+                  <input  required name="contacto" type="text" class="form-control" id="contacto" placeholder="Contacto del fabricante">
+                    </div>
+                  <div class="form-group col-md-3">
+                    <label for="telefono">Teléfono:</label>
+                    <input  required name="telefono" type="number" class="form-control" placeholder="Teléfono fabricante" id="telefono">
+                  </div>
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-success btn-block">AGREGAR FABRICANTE <i class="fa fa-building"></i> </button>
+              </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<%- include("../partials/footer"); %>

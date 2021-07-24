@@ -1,0 +1,33 @@
+body {
+  background-color: #eee;
+}
+@media screen and (min-width: 978px) {
+  .navbar-dinamico {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 978px) {
+  .eliminar-btn {
+    margin-top: 0.3em;
+  }
+}
+.contenedor-top {
+  margin-top: 2em !important;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.error-vista {
+  max-width: 25em;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+.alerta {
+  margin: 1em auto;
+  max-width: 36em;
+  width: 58%;
+}

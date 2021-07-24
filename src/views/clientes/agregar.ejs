@@ -1,0 +1,35 @@
+<%- include("../partials/header"); %>
+<div class="container contenedor-top mb-5">
+    <%- include("../partials/error"); %>
+      <h2 class="text-center mb-4 text-capitalize">Agrega nuevos clientes</h2>
+      <div class="row d-flex justify-content-center ">
+          <div class="col-md-10">
+              <form action="/clientes/insertar" method="post">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="nombre">Nombre:</label>
+                      <input  name="id" type="hidden">
+                      <input required  name="nombre"  type="text" class="form-control" id="nombre" placeholder="Escribe el nombre del cliente">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="cedula">Cédula:</label>
+                      <input required name="cedula"   type="number" class="form-control" id="cedula" placeholder="Cédula del cliente">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-10">
+                    <label for="direccion">Dirección:</label>
+                    <input  required    name="direccion" type="text" class="form-control" id="direccion" placeholder="Dirección del cliente">
+                      </div>
+                    <div class="form-group col-md-2">
+                      <label for="telefono">Teléfono:</label>
+                      <input  required name="telefono"  type="number" class="form-control" placeholder="Teléfono" id="telefono">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  <button type="submit" class="text-uppercase btn btn-success btn-block">Agregar cliente <i class="fa fa-users"></i> </button>
+                </form>
+          </div>
+      </div>
+  </div>
+<%- include("../partials/footer"); %>

@@ -1,0 +1,66 @@
+<%- include("../partials/header"); %>
+<div class="container ">
+    <div class="row d-flex justify-content-center">
+        <%- include("../partials/error"); %>
+        <%- include("../partials/exito"); %>
+        <div class="mt-5 col-md-6">
+            <% if(clientes.length <= 0) {%>
+                <p class="text-capitalize text-center">Añade nuevos clientes a la concesionaria</p>
+            <a href="/clientes/agregar" class="btn btn-primary btn-block mt-3 text-capitalize">Agrega nuevos Clientes  <i class="fa fa-user-plus"></i></a>
+                
+                <%}else{%>
+            <h1 class="text-capitalize text-center">Clientes Registrados</h1>
+            <span class="input-group-addon">Buscar: &nbsp;</span>
+            <input id="filtrar" type="text" class="form-control" placeholder="Ingresa el Nombre del Cliente...">
+            
+            <a href="/clientes/agregar" class="btn btn-primary btn-block mt-3 text-capitalize">Agregar nuevos Clientes  <i class="fa fa-user-plus"></i></a>
+        
+        </div>
+        <%}%>
+       
+    </div>
+</div>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-12 mx-auto mt-4">
+            <table class="table ">
+                <thead class="thead-dark">
+                  <tr>
+                    <% if(clientes.length <= 0) {%>
+                        <tr class="d-flex justify-content-center">
+                            <p class="text-center text-capitalize">No hay clientes registrados en la concesionaria para listar</p> 
+                        </tr>
+                    <%}else{%>
+                    <th scope="col" >Cédula</th>
+                    <th scope="col">Nombre</th>
+				    <th scope="col">Teléfono</th>
+				    <th scope="col">Dirección</th>
+                    <th scope="col">Acciones</th>
+                    <%}%>
+                  </tr>
+                </thead>
+                <tbody id="buscar">
+                   
+                    <% clientes.forEach(cliente =>{ %>
+                    <tr >
+                        <th scope="row"><%= cliente.cedula %></th>
+                        <td><%= cliente.nombre %></td>
+                        <td><%= cliente.telefono %></td>
+                        <td><%= cliente.direccion %></td>
+                        <td> 
+                            <a href="/clientes/editar/<%= cliente.id %>" class="btn btn-info" >
+                            <i class="fa fa-user-edit"></i>
+                         </a>
+                            <a href="/clientes/eliminar/<%= cliente.id %>" class="btn btn-danger eliminar-btn" onclick="return confirm(`¿Esta seguro en eliminar el cliente: <%= cliente.nombre %>?`)">
+                            <i class="fa fa-user-times"></i>
+                         </a>
+                    </td>
+                      </tr>
+                    <% }) %>
+                 
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<%- include("../partials/footer"); %>
